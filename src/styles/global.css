@@ -183,10 +183,15 @@ h3 {
   height: var(--navbar-h);
   padding-top: var(--sp-sm);
   padding-bottom: var(--sp-sm);
+  padding-left: var(--sp-lg);
+  padding-right: var(--sp-lg);
   background-color: transparent;
-  width: 100%;
+  width: 100vw;
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
   overflow: hidden;
 }
 
@@ -196,6 +201,9 @@ h3 {
   align-items: center;
   display: flex;
   width: 100%;
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nav-brand {
@@ -317,8 +325,13 @@ h3 {
 .floating-nav {
   z-index: 999;
   position: fixed;
-  top: 0; left: 0; right: 0;
-  --bg-secondary: black;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: transparent;
+  padding-left: var(--sp-lg);
+  padding-right: var(--sp-lg);
+  --bg-secondary: transparent;
   --link-alternate: white;
 }
 
@@ -327,6 +340,10 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: transparent;
 }
 
 .floating-nav-inner.visible {
@@ -335,7 +352,7 @@ h3 {
 
 .floating-logo-wrap {
   padding: var(--sp-2xs);
-  background-color: var(--neutral-darker);
+  background-color: transparent;
   border-radius: 4px;
   overflow: clip;
 }
@@ -510,7 +527,13 @@ h3 {
 .spacer-nav { height: var(--navbar-h); }
 
 /* ─── HERO ───────────────────────────────────────────────────────────────── */
-.section-hero { position: relative; }
+.section-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  width: 100%;
+}
 
 .hero-sticky-wrapper {
   height: 100svh;
@@ -520,17 +543,29 @@ h3 {
 }
 
 .hero-content {
-  padding-top: var(--sp-md);
-  padding-bottom: var(--sp-md);
-  height: calc(100svh - var(--navbar-h));
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  align-items: center;
+  flex: 1;
   position: relative;
+  /* min-height: 50vh; */
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
-.hero-title-wrapper { width: 100%; }
+.hero-title-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: var(--sp-lg) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 .hero-word-wrap { display: inline-block; }
 .hero-word { display: inline-block; }
 
@@ -538,8 +573,8 @@ h3 {
   text-transform: uppercase;
   display: flex;
   flex-flow: column;
-  font-size: var(--fs-full-screen);
-  line-height: 0.95;
+  font-size: clamp(3rem, 13vw, 15rem);
+  line-height: 0.92;
   font-family: var(--font-display);
   font-weight: var(--fw-extrabold);
   letter-spacing: var(--ls-tight);
@@ -548,23 +583,27 @@ h3 {
 .hero-title-line1 {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   width: 100%;
+  padding: 0 var(--sp-lg);
 }
 
 .hero-title-line2 {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
+  padding: 0 var(--sp-lg);
 }
 
 .hero-image {
   z-index: 10;
   object-fit: contain;
   object-position: 50% 100%;
-  width: auto;
-  height: 78%;
+  background: rgba(27,26,24,0.08); /* more transparent */
+   box-shadow: 0 2px 24px 0 rgba(0,0,0,0.12);
+   backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -573,23 +612,29 @@ h3 {
 }
 
 .hero-gradient {
-  z-index: 20;
-  background-image: linear-gradient(0deg, var(--brand), transparent);
+  z-index: 2;
+  background-image: linear-gradient(to top, var(--brand) 0%, transparent 100%);
   width: 100%;
-  height: 40%;
+  height: 50%;
   position: absolute;
   bottom: 0; left: 0; right: 0;
+  pointer-events: none;
 }
 
 .hero-description-wrapper {
-  width: 100%;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 30;
+  padding-bottom: var(--sp-lg);
 }
 
 .hero-description {
-  overflow: hidden;
-  font-size: var(--fs-text);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  max-width: 22rem;
+  color: var(--black);
 }
 
 .scroll-instruction {
@@ -597,6 +642,7 @@ h3 {
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   opacity: 0.6;
+  color: var(--black);
 }
 
 /* ─── INTRO ──────────────────────────────────────────────────────────────── */

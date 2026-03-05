@@ -184,25 +184,30 @@ export default function HomePage() {
       <div className="hero-sticky-wrapper">
         <div className="spacer-nav" />
         <section className="section-hero">
-          <div className="padding-global">
-            <div className="container-large">
-              <div className="hero-content">
-                <div className="hero-title-wrapper" style={{ overflow: 'clip' }}>
-                  <h1 className="hero-title">
-                    <span className="hero-title-line1">
-                      <span className="hero-word-wrap"><span className="hero-word">AI</span></span>
-                      <span className="hero-word-wrap"><span className="hero-word">Agents</span></span>
-                      <span className="hero-word-wrap"><span className="hero-word">That</span></span>
-                    </span>
-                    <span className="hero-title-line2">
-                      <span className="hero-word-wrap"><span className="hero-word">Actually</span></span>
-                      <span className="hero-word-wrap" style={{ whiteSpace: 'nowrap' }}>
-                        <span className="hero-word text-accent">&ldquo;Ship&rdquo;</span>
-                      </span>
-                    </span>
-                  </h1>
-                </div>
-                <div className="hero-description-wrapper grid-12">
+          <div className="hero-title-wrapper">
+            <h1 className="hero-title">
+              <span className="hero-title-line1">
+                <span className="hero-word-wrap"><span className="hero-word">AI</span></span>
+                <span className="hero-word-wrap"><span className="hero-word">Agents</span></span>
+                <span className="hero-word-wrap"><span className="hero-word">That</span></span>
+              </span>
+              <span className="hero-title-line2">
+                <span className="hero-word-wrap"><span className="hero-word">Actually</span></span>
+                <span className="hero-word-wrap" style={{ whiteSpace: 'nowrap' }}>
+                  <span className="hero-word text-accent">&ldquo;Ship&rdquo;</span>
+                </span>
+              </span>
+            </h1>
+          </div>
+          <div className="hero-content">
+            {/* <img ref={heroRef} className="hero-image" src={heroPhoto} width="800" height="955"
+              alt="A man wearing a black sweater and a white collar." loading="eager" /> */}
+          </div>
+          <div className="hero-gradient" />
+          <div className="hero-description-wrapper">
+            <div className="padding-global">
+              <div className="container-large">
+                <div className="grid-12">
                   <p className="hero-description" style={{ gridColumn: 'span 3' }}>
                     I design and build AI agents that automate workflows, save time, and work around the clock — so you don&apos;t have to.
                   </p>
@@ -210,9 +215,6 @@ export default function HomePage() {
                     (SCROLL TO SEE HOW)
                   </div>
                 </div>
-                {/* <img ref={heroRef} className="hero-image" src={heroPhoto} width="800" height="955"
-                  alt="A man wearing a black sweater and a white collar." loading="eager" /> */}
-                <div className="hero-gradient" />
               </div>
             </div>
           </div>

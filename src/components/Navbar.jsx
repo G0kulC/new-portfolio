@@ -80,35 +80,31 @@ export default function Navbar() {
     <>
       {/* ── Static navbar (hero) ── */}
       <nav className="nav-component">
-        <div className="padding-global">
-          <div className="container-large">
-            <div className="nav-container">
-              <Link to="/" className="nav-brand" aria-label="Go to homepage">
-                <LogoSVG />
-              </Link>
-              <div className="nav-menu hide-tablet">
-                {links.slice(1, 4).map(l => (
-                  <Link key={l.to} to={l.to} className="nav-link">{l.label}</Link>
-                ))}
-              </div>
-              <Link to="/contact" className="btn-cta hide-tablet">
-                <img src={heroPhoto} alt="" style={{ width: '2rem', height: '2rem', borderRadius: '50%', objectFit: 'cover', objectPosition: '50% 8%', flexShrink: 0 }} />
-                <span>Let&apos;s talk</span>
-              </Link>
-              <button
-                className="hamburger-btn show-tablet"
-                aria-label="Toggle menu"
-                onClick={() => setMenuOpen(o => !o)}
-              >
-                <span className="hamburger-label">{menuOpen ? 'Close' : 'Menu'}</span>
-                <span className="hamburger-icon">
-                  <span className="hamburger-bar" style={menuOpen ? { transform: 'translateY(0.45em) rotate(45deg)' } : {}}/>
-                  <span className="hamburger-bar" style={menuOpen ? { opacity: 0, transform: 'scaleX(0)' } : {}}/>
-                  <span className="hamburger-bar" style={menuOpen ? { transform: 'translateY(-0.45em) rotate(-45deg)' } : {}}/>
-                </span>
-              </button>
-            </div>
+        <div className="nav-container">
+          <Link to="/" className="nav-brand" aria-label="Go to homepage">
+            <LogoSVG />
+          </Link>
+          <div className="nav-menu hide-tablet">
+            {links.slice(1, 4).map(l => (
+              <Link key={l.to} to={l.to} className="nav-link">{l.label}</Link>
+            ))}
           </div>
+          <Link to="/contact" className="btn-cta hide-tablet">
+            <img src={heroPhoto} alt="" style={{ width: '2rem', height: '2rem', borderRadius: '50%', objectFit: 'cover', objectPosition: '50% 8%', flexShrink: 0 }} />
+            <span>Let&apos;s talk</span>
+          </Link>
+          <button
+            className="hamburger-btn show-tablet"
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen(o => !o)}
+          >
+            <span className="hamburger-label">{menuOpen ? 'Close' : 'Menu'}</span>
+            <span className="hamburger-icon">
+              <span className="hamburger-bar" style={menuOpen ? { transform: 'translateY(0.45em) rotate(45deg)' } : {}}/>
+              <span className="hamburger-bar" style={menuOpen ? { opacity: 0, transform: 'scaleX(0)' } : {}}/>
+              <span className="hamburger-bar" style={menuOpen ? { transform: 'translateY(-0.45em) rotate(-45deg)' } : {}}/>
+            </span>
+          </button>
         </div>
       </nav>
 
@@ -118,29 +114,25 @@ export default function Navbar() {
         className="floating-nav"
         style={{ transform: 'translateY(-100%)' }}
       >
-        <div className="padding-global">
-          <div className="container-large">
-            <div className="floating-nav-inner">
-              <Link to="/" className="floating-logo-wrap" aria-label="Go to homepage">
-                <LogoSVG className="logo-white" />
-              </Link>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                {links.slice(1, 4).map(l => (
-                  <Link key={l.to} to={l.to} className="nav-link hide-tablet" style={{ color: 'white' }}>{l.label}</Link>
-                ))}
-                <button onClick={() => setMenuOpen(o => !o)} className="floating-menu-btn">
-                  <span>Menu</span>
-                  <span className="hamburger-icon">
-                    <span className="hamburger-bar"/>
-                    <span className="hamburger-bar"/>
-                    <span className="hamburger-bar"/>
-                  </span>
-                </button>
-                <Link to="/contact" className="btn-cta hide-tablet" style={{ height: '3rem' }}>
-                  <span>Let&apos;s talk</span>
-                </Link>
-              </div>
-            </div>
+        <div className="floating-nav-inner">
+          <Link to="/" className="floating-logo-wrap" aria-label="Go to homepage">
+            <LogoSVG className="logo-white" />
+          </Link>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            {links.slice(1, 4).map(l => (
+              <Link key={l.to} to={l.to} className="nav-link hide-tablet" style={{ color: 'white' }}>{l.label}</Link>
+            ))}
+            <button onClick={() => setMenuOpen(o => !o)} className="floating-menu-btn">
+              <span>Menu</span>
+              <span className="hamburger-icon">
+                <span className="hamburger-bar"/>
+                <span className="hamburger-bar"/>
+                <span className="hamburger-bar"/>
+              </span>
+            </button>
+            <Link to="/contact" className="btn-cta hide-tablet" style={{ height: '3rem' }}>
+              <span>Let&apos;s talk</span>
+            </Link>
           </div>
         </div>
       </aside>
