@@ -208,10 +208,10 @@ export default function HomePage() {
             <div className="padding-global">
               <div className="container-large">
                 <div className="grid-12">
-                  <p className="hero-description" style={{ gridColumn: 'span 3' }}>
+                  <p className="hero-description hero-desc-col">
                     I design and build AI agents that automate workflows, save time, and work around the clock — so you don&apos;t have to.
                   </p>
-                  <div className="scroll-instruction" style={{ gridColumn: '10 / 13', placeSelf: 'end', textAlign: 'right' }}>
+                  <div className="scroll-instruction hero-scroll-col">
                     (SCROLL TO SEE HOW)
                   </div>
                 </div>
