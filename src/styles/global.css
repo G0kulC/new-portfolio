@@ -138,6 +138,8 @@ h3 {
   justify-content: space-between;
   align-items: stretch;
   display: flex;
+  padding-left: var(--sp-lg);
+  padding-right: var(--sp-lg);
 }
 
 .container-large {
@@ -643,6 +645,16 @@ h3 {
   letter-spacing: 0.05em;
   opacity: 0.6;
   color: var(--black);
+}
+
+.hero-desc-col {
+  grid-column: span 3;
+}
+
+.hero-scroll-col {
+  grid-column: 10 / 13;
+  place-self: end;
+  text-align: right;
 }
 
 /* ─── INTRO ──────────────────────────────────────────────────────────────── */
@@ -1561,15 +1573,51 @@ h3 {
 
 @media (max-width: 767px) {
   :root {
-    --sp-xl: 5rem;
-    --sp-2xl: 8rem;
+    --sp-md: 1.5rem;
+    --sp-lg: 2rem;
+    --sp-xl: 4rem;
+    --sp-2xl: 7rem;
   }
 
   h1 { font-size: clamp(2.5rem, 12vw, 4rem); }
 
-  .hero-title { font-size: clamp(5rem, 12vw, 8rem); }
-  .hero-image { height: 70%; transform: translateX(-51%); }
-  .hero-title-line1, .hero-title-line2 { flex-wrap: wrap; }
+  /* Tighter horizontal gutters on mobile */
+  .padding-global {
+    padding-left: var(--sp-md);
+    padding-right: var(--sp-md);
+  }
+
+  /* Hero — collapse dead space, stack title above description */
+  .hero-sticky-wrapper { height: auto; min-height: 100svh; }
+  .hero-content { display: none; }
+  .hero-gradient { display: none; }
+  .hero-description-wrapper {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    padding-top: var(--sp-md);
+    padding-bottom: var(--sp-lg);
+  }
+  .hero-title { font-size: clamp(2.5rem, 13vw, 5rem); }
+  .hero-title-line1,
+  .hero-title-line2 {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.35em;
+    padding: 0 var(--sp-sm);
+  }
+  .hero-desc-col { grid-column: 1 / 8; }
+  .hero-scroll-col { grid-column: 8 / 13; }
+
+  /* About — full width columns on mobile */
+  .about-text-col { grid-column: 1 / 13; }
+  .about-polaroid-wrapper { grid-column: 1 / 13; }
+  .about-cta-col { grid-column: 1 / 13; }
+
+  /* Project photos — single column */
+  .project-photos-grid { grid-template-columns: 1fr; }
+  .project-photos-grid .falling-image-wrap { grid-column: 1 / 2 !important; }
 
   .testimonials-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
